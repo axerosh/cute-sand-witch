@@ -4,8 +4,57 @@ public class ThrowObject : MonoBehaviour
 {
 	public GameObject SpawnedObjectPrefab;
 
+	public bool IsPreview
+	{
+		set
+		{
+			if (value != isPreview)
+			{
+				isPreview = value;
+				rb.isKinematic = isPreview;
+
+				if (isPreview)
+				{
+					gameObject.layer = 0;
+				}
+				else
+				{
+					gameObject.layer = LayerMask.NameToLayer("ThrowObject");
+
+				}
+			}
+		}
+	}
+
+	private Rigidbody rb;
+	private bool isPreview = false;
+
+	public void Init()
+	{
+		rb = GetComponent<Rigidbody>();
+	}
+
+	private void Start()
+	{
+		Init();
+	}
+
+	private void FixedUpdate()
+	{
+		if (isPreview)
+			return;
+
+		transform.LookAt(transform.position + rb.velocity);
+
+		if (rb.IsSleeping())
+			Destroy(this);
+	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
+		if (isPreview)
+			return;
+
 		// Dummy default values
 		Vector3 closestPoint = transform.position;
 		Vector3 closestNormal = collision.transform.position - closestPoint;

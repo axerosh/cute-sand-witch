@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-	public GameObject SpawnedObjectPrefab;
+	public ThrowObject SpawnedObjectPrefab;
 	public Vector3 InitialVelocity = 10f * Vector3.up;
 
 	private void Start()
@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 		if(TryGetComponent(out BallisticPreview preview))
 		{
 			preview.InitialRelativeVelocity = InitialVelocity;
+			preview.StepPreviewPrefab = SpawnedObjectPrefab;
 		}
 	}
 
