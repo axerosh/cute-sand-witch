@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class BallisticPreview : MonoBehaviour
 {
-	public GameObject StepPreviewPrefab;
 	public float StepDistance = 0.2f;
 	public int MaxSteps = 20;
 
 	[HideInInspector]
+	public ThrowObject StepPreviewPrefab;
+	[HideInInspector]
 	public Vector3 InitialRelativeVelocity;
 
-	private List<GameObject> stepPreviews = new List<GameObject>();
+	private List<ThrowObject> stepPreviews = new List<ThrowObject>();
 	private int layerMask;
 
 	private void Start()
@@ -48,6 +49,8 @@ public class BallisticPreview : MonoBehaviour
 			{
 				// New preview object
 				var newStepPreview = Instantiate(StepPreviewPrefab, transform.root);
+				newStepPreview.Init();
+				newStepPreview.IsPreview = true;
 				newStepPreview.transform.position = position;
 				newStepPreview.transform.LookAt(position + velocity);
 				stepPreviews.Add(newStepPreview);
@@ -60,7 +63,7 @@ public class BallisticPreview : MonoBehaviour
 			int startIndex = steps + 1;
 			for (int i = startIndex; i < stepPreviews.Count; ++i)
 			{
-				Destroy(stepPreviews[i]);
+				Destroy(stepPreviews[i].gameObject);
 			}
 			int count = stepPreviews.Count - startIndex;
 			stepPreviews.RemoveRange(startIndex, count);

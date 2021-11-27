@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e25bb69641eb124ba55b101879474a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnedObjectPrefab: {fileID: 5066401249628783672, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+  SpawnedObjectPrefab: {fileID: 2542578578516124157, guid: 69995169c1692a84c9da95cee883332d, type: 3}
   InitialVelocity: {x: 0, y: 10, z: 0}
 --- !u!114 &2518759036215973834
 MonoBehaviour:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6005669af76d904abdd11790249e8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StepPreviewPrefab: {fileID: 5066401249628783672, guid: 3f1b5a89e8b2fd742ab4f1eb1e37483e, type: 3}
   StepDistance: 1
   MaxSteps: 20
+  StepPreviewPrefab: {fileID: 5066401249628783672, guid: 3f1b5a89e8b2fd742ab4f1eb1e37483e, type: 3}
   InitialRelativeVelocity: {x: 0, y: 0, z: 0}
