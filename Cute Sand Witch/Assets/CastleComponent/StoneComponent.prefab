@@ -67,6 +67,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: stoneblock
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e4475bca1b2f1f7468439e3eafbbc506, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: e4475bca1b2f1f7468439e3eafbbc506, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4475bca1b2f1f7468439e3eafbbc506, type: 3}
 --- !u!1001 &3236022316593497129
