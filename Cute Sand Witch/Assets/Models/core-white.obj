@@ -4,7 +4,7 @@
 o 
 
 # material
-mtllib core.mtl
+mtllib core-white.mtl
 usemtl palette
 
 # normals
