@@ -453,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 2518759036215973837, guid: 3d9a9233bb24972419481397781f69ef, type: 3}
       propertyPath: SpawnedObjectPrefab
       value: 
-      objectReference: {fileID: 2542578578516124157, guid: 1518fec4bf00d724eb0762694e0e7e63, type: 3}
+      objectReference: {fileID: 2542578578516124157, guid: c9150673a3176824696d7b5b2c4ad58f, type: 3}
     - target: {fileID: 2518759036215973839, guid: 3d9a9233bb24972419481397781f69ef, type: 3}
       propertyPath: m_Name
       value: ThrowObjectSpawner
