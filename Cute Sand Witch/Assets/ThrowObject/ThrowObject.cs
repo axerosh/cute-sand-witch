@@ -6,29 +6,33 @@ public class ThrowObject : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		Vector3 closestPoint = transform.position; // Dummy default value
+		// Dummy default values
+		Vector3 closestPoint = transform.position;
+		Vector3 closestNormal = collision.transform.position - closestPoint;
 		float closestDistance = float.MaxValue;
 
 		int contactCount = collision.contactCount;
 		for (int i = 0; i < contactCount; ++i)
 		{
-			Vector3 contactPoint = collision.GetContact(i).point;
-			float contactDistance = (contactPoint - transform.position).sqrMagnitude;
+			var contact = collision.GetContact(i);
+			float contactDistance = (contact.point - transform.position).sqrMagnitude;
 
 			if (contactDistance < closestDistance)
 			{
-				closestPoint = contactPoint;
+				closestPoint = contact.point;
+				closestNormal = contact.normal;
 				closestDistance = contactDistance;
 			}
 		}
 
-		OnHit(closestPoint);
+		OnHit(closestPoint, closestNormal);
 	}
 
-	private void OnHit(Vector3 globalHitPostion)
+	private void OnHit(Vector3 globalHitPostion, Vector3 hitNormal)
 	{
 		var spawnedObject = Instantiate(SpawnedObjectPrefab, transform.parent);
 		spawnedObject.transform.position = globalHitPostion;
+		spawnedObject.transform.LookAt(globalHitPostion + hitNormal);
 		Destroy(this);
 	}
 }
