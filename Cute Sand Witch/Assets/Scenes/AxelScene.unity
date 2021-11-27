@@ -450,6 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 20.358
       objectReference: {fileID: 0}
+    - target: {fileID: 2518759036215973837, guid: 3d9a9233bb24972419481397781f69ef, type: 3}
+      propertyPath: SpawnedObjectPrefab
+      value: 
+      objectReference: {fileID: 2542578578516124157, guid: 1518fec4bf00d724eb0762694e0e7e63, type: 3}
     - target: {fileID: 2518759036215973839, guid: 3d9a9233bb24972419481397781f69ef, type: 3}
       propertyPath: m_Name
       value: ThrowObjectSpawner
