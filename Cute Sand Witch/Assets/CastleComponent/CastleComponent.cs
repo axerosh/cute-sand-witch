@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Base Castle component.
 /// </summary>
-public abstract class CastleComponent : MonoBehaviour
+public class CastleComponent : MonoBehaviour
 {
     public int startingHealth;
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2447886982652365948}
   - component: {fileID: 1744712730143866493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CannonBallSpawnPoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 624522003763345907}
   - component: {fileID: 1534583938976500508}
   - component: {fileID: 2106151224918592020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3290321278096809935}
   - component: {fileID: 1589376043016696944}
   - component: {fileID: 3673730505303431615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 4164634246070655996}
   - component: {fileID: 8943447222958434239}
   - component: {fileID: 58096043283244501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
