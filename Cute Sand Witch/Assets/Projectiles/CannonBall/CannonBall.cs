@@ -31,6 +31,12 @@ public class CannonBall : MonoBehaviour
                 Destroy(gameObject);
             }
 
+            CrabArmy hitArmy = collision.rigidbody.gameObject.GetComponent<CrabArmy>();
+            if (hitArmy != null )
+            {
+                hitArmy.Damage(impactDamage);
+                Destroy(gameObject);
+            }
         }
     }
 
