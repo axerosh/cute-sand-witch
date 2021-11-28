@@ -8,6 +8,14 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraOrigin;
     public AimerScript aimer;
 
+    public InputMethod inputMethod;
+
+    public enum InputMethod
+    {
+        KeyboardMouse,
+        Controller,
+    }
+
     public float speed = 6f;
     public float fallSpeed = 1f;
     public float jumpSpeed = 1f;
@@ -17,12 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public float maxVerticalRotation = 30f;
     public float minVerticalRotation = -30f;
 
-    private Vector3 startPosition = new Vector3();
-    private Vector3 moveDir = new Vector3(0, 0, 0);
+    private Vector3 startPosition;
+    private Vector3 fallVelocity = new Vector3(0, 0, 0);
 
     void Start()
     {
         Debug.Log("player script started");
+        startPosition = transform.position;
         SetMouseLocked(true);
     }
 
@@ -31,38 +40,48 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
 
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = 0f;
+        float vertical = 0f;
+        switch (inputMethod)
+        {
+            case InputMethod.KeyboardMouse:
+                horizontal = Input.GetAxisRaw("HorizontalKey");
+                vertical = Input.GetAxisRaw("VerticalKey");
+                break;
+            case InputMethod.Controller:
+                horizontal = Input.GetAxisRaw("HorizontalJoy");
+                vertical = Input.GetAxisRaw("VerticalJoy");
+                break;
+        }
 
-        Vector3 direction = horizontal * transform.right + vertical * transform.forward;
+        Vector3 inputDirection = horizontal * transform.right + vertical * transform.forward;
 
         //begin with checking gravity
         if (!controller.isGrounded)
         {
-            moveDir += Physics.gravity * fallSpeed * Time.deltaTime;
+            fallVelocity += fallSpeed *Time.deltaTime * Physics.gravity;
+            Debug.Log($"Fall");
         }
         else //reset falling
         {
-            moveDir = Vector3.zero;
-        }
+            fallVelocity.y = -0.5f; // Since isGrounded is stupid
+            Debug.Log($"Grounded");
 
-        //check for movement
-        if (controller.isGrounded && direction.magnitude >= 0.1f)     // This prevents flying
-        //if (direction.magnitude >= 0.1f)                          // this enables flying
-        {
-            moveDir = direction;
-            moveDir = moveDir.normalized * speed * Time.deltaTime;
-        }
-       
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (controller.isGrounded)
+            if ((inputMethod == InputMethod.KeyboardMouse && Input.GetButtonDown("JumpKey"))
+                || (inputMethod == InputMethod.Controller && Input.GetButtonDown("JumpJoy")))
             {
-                moveDir += Vector3.up * jumpSpeed * Time.deltaTime;
+                Debug.Log($"Jump");
+                fallVelocity += Vector3.up * jumpSpeed;
             }
         }
 
-        controller.Move(moveDir);
+        //check for movement
+        if (inputDirection.magnitude >= 0.1f)
+        {
+            inputDirection = inputDirection.normalized * speed;
+        }
+
+        controller.Move((fallVelocity + inputDirection) * Time.deltaTime);
 
         //press r to reset position
         if (Input.GetKey(KeyCode.R))
@@ -73,20 +92,31 @@ public class PlayerMovement : MonoBehaviour
 
         // Rotation
 
-        float mouseDeltaX = Input.GetAxisRaw("Mouse X");
-        float mouseDeltaY = Input.GetAxisRaw("Mouse Y");
-
-        mouseDeltaX = Mathf.Min(mouseDeltaX, 1f);
-        mouseDeltaY = Mathf.Min(mouseDeltaY, 1f);
-
-        if (mouseDeltaX > 0.1f || mouseDeltaX < -0.1f)
+        float rotationHorizontal = 0f;
+        float rotationVertical = 0f;
+        switch (inputMethod)
         {
-            transform.Rotate(0f, mouseDeltaX * rotationSpeedHorizontal * Time.deltaTime, 0f);
+            case InputMethod.KeyboardMouse:
+                rotationHorizontal = Input.GetAxisRaw("Mouse X");
+                rotationVertical = -Input.GetAxisRaw("Mouse Y");
+                break;
+            case InputMethod.Controller:
+                rotationHorizontal = Input.GetAxisRaw("LookHorizontalJoy");
+                rotationVertical = Input.GetAxisRaw("LookVerticalJoy");
+                break;
         }
 
-        if (mouseDeltaY > 0.1f || mouseDeltaY < -0.1f)
+        rotationHorizontal = Mathf.Min(rotationHorizontal, 1f);
+        rotationVertical = Mathf.Min(rotationVertical, 1f);
+
+        if (rotationHorizontal > 0.1f || rotationHorizontal < -0.1f)
         {
-            cameraOrigin.Rotate(-mouseDeltaY * rotationSpeedVertical * Time.deltaTime, 0f, 0f);
+            transform.Rotate(0f, rotationHorizontal * rotationSpeedHorizontal * Time.deltaTime, 0f);
+        }
+
+        if (rotationVertical > 0.1f || rotationVertical < -0.1f)
+        {
+            cameraOrigin.Rotate(rotationVertical * rotationSpeedVertical * Time.deltaTime, 0f, 0f);
             var rotation = cameraOrigin.localRotation;
             rotation.x = Mathf.Clamp(rotation.x,
                 0.5f * Mathf.Deg2Rad * minVerticalRotation,

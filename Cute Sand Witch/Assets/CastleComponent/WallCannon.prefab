@@ -94,8 +94,8 @@ MonoBehaviour:
   cannonBallPrefab: {fileID: 5125350413285075167, guid: e173240aa3d52c34e894e75e185b934b, type: 3}
   cannonBallSpawnPoint: {fileID: 2447886982652365948}
   cooldown: 2
-  cannonBallVelocity: 10
-  stormTrooperFactor: 0.5
+  cannonBallVelocity: 50
+  stormTrooperFactor: 0.1
 --- !u!54 &3673730505303431615
 Rigidbody:
   m_ObjectHideFlags: 0
