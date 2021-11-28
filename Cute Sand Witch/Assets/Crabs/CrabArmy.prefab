@@ -150,7 +150,9 @@ MonoBehaviour:
   maxDamage: 4
   attackCooldown: 2
   speed: 0.5
-  crabPrefab: {fileID: 2303834427625426688, guid: 2baa205dfe6be65499b9e7ad668ff08c, type: 3}
+  crabPrefabs:
+  - {fileID: 2303834427625426688, guid: 39d0a43fd850dba478f8a3349df8921d, type: 3}
+  - {fileID: 2303834427625426688, guid: 2baa205dfe6be65499b9e7ad668ff08c, type: 3}
   hitBox: {fileID: 6539675644343467693}
 --- !u!54 &3611510883368927506
 Rigidbody:

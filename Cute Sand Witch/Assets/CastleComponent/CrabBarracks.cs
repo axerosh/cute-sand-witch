@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CrabBarracks : CastleComponent
 {
     public CrabArmy crabPrefab;
 
-    Transform crabSpawnPoint;
+    public Transform crabSpawnPoint;
 
     public float cooldown;
 
@@ -19,6 +20,8 @@ public class CrabBarracks : CastleComponent
     {
         base.Start();
         currentCooldown = cooldown;
+
+        opponentCore = FindObjectsOfType<CastleCore>().Where((CastleCore c) => { return c.owner != owner; }).FirstOrDefault();
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class CrabBarracks : CastleComponent
 
     private void SpawnCrabs()
     {
-        Instantiate(crabPrefab, crabSpawnPoint.position, Quaternion.identity);
+        CrabArmy newArmy = Instantiate(crabPrefab, crabSpawnPoint.position, transform.rotation);
+
+        newArmy.Init(owner, opponentCore);
     }
 }

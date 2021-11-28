@@ -19,7 +19,7 @@ public class CrabArmy : MonoBehaviour
 
     public float speed;
 
-    public Crab crabPrefab;
+    public List<Crab> crabPrefabs;
 
     public Transform hitBox;
 
@@ -38,8 +38,7 @@ public class CrabArmy : MonoBehaviour
     void Start()
     {
         SpawnCrabs();
-        target = FindObjectsOfType<CastleCore>().Where((CastleCore c) => c.owner != owner).FirstOrDefault();
-        
+
         if (target != null)
         {
             transform.LookAt(target.transform, Vector3.up);
@@ -82,6 +81,12 @@ public class CrabArmy : MonoBehaviour
         }
 
         currentAttackCooldown -= Time.deltaTime;
+    }
+
+    public void Init(int owner, CastleCore target)
+    {
+        this.owner = owner;
+        this.target = target;
     }
 
     public void Damage(int amount)
@@ -134,7 +139,7 @@ public class CrabArmy : MonoBehaviour
             spawnPoint.x += spawnOffset.x;
             spawnPoint.z += spawnOffset.y; 
 
-            Crab newCrab = Instantiate(crabPrefab, spawnPoint, Quaternion.identity, transform);
+            Crab newCrab = Instantiate(crabPrefabs[owner], spawnPoint, transform.rotation, transform);
 
             newCrab.SetBobPhase(Random.value);
 
