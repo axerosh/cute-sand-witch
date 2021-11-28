@@ -113,6 +113,6 @@ public class ThrowObject : MonoBehaviour
 		{
 			castleComponent.owner = owner;
 		}
-		Destroy(this);
+		Destroy(this.gameObject);
 	}
 }
