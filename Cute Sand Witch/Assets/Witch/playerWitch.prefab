@@ -246,7 +246,7 @@ MonoBehaviour:
   inputMethod: 0
   speed: 6
   fallSpeed: 3
-  jumpSpeed: 20
+  jumpSpeed: 11
   rotationSpeedHorizontal: 240
   rotationSpeedVertical: 120
   maxVerticalRotation: 45

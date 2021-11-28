@@ -4,6 +4,8 @@ public class ThrowObject : MonoBehaviour
 {
 	public GameObject SpawnedObjectPrefab;
 
+	public int owner = 0;
+
 	public bool IsPreview
 	{
 		set
@@ -107,6 +109,10 @@ public class ThrowObject : MonoBehaviour
 		var spawnedObject = Instantiate(SpawnedObjectPrefab, transform.parent);
 		spawnedObject.transform.position = globalHitPostion;
 		spawnedObject.transform.LookAt(globalHitPostion + hitNormal);
+		if (spawnedObject.TryGetComponent(out CastleComponent castleComponent))
+		{
+			castleComponent.owner = owner;
+		}
 		Destroy(this);
 	}
 }

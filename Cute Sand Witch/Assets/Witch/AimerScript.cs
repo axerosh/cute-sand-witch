@@ -17,6 +17,7 @@ public class AimerScript : MonoBehaviour
     private Vector3 previewScale = new Vector3(0.5f, 0.5f, 0.5f) * 0.5f;
     public Transform witchTransform;
     public List<ThrowObject> throwables;
+    public int playerID = 0;
 
     void Start()
     {
@@ -87,6 +88,7 @@ public class AimerScript : MonoBehaviour
             || (inputMethod == PlayerMovement.InputMethod.Controller && Input.GetButtonDown("FireJoy"))))
         {
             var spawnedObject = Instantiate(SpawnedObjectPrefab, transform.root.parent);
+            spawnedObject.owner = playerID;
             var cc = spawnedObject.GetComponent<CastleComponent>();
             if (cc != null)
                 spawnedObject.GetComponent<CastleComponent>().enabled = true;
