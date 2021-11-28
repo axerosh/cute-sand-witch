@@ -7,11 +7,11 @@ public class BallisticPreview : MonoBehaviour
 	public int MaxSteps = 20;
 
 	[HideInInspector]
-	public ThrowObject StepPreviewPrefab;
+	public GameObject StepPreviewPrefab;
 	[HideInInspector]
 	public Vector3 InitialRelativeVelocity;
 
-	private List<ThrowObject> stepPreviews = new List<ThrowObject>();
+	private List<GameObject> stepPreviews = new List<GameObject>();
 	private int layerMask;
 
 	private void Start()
@@ -49,8 +49,8 @@ public class BallisticPreview : MonoBehaviour
 			{
 				// New preview object
 				var newStepPreview = Instantiate(StepPreviewPrefab, transform.root);
-				newStepPreview.Init();
-				newStepPreview.IsPreview = true;
+				//newStepPreview.Init();
+				//newStepPreview.IsPreview = true;
 				newStepPreview.transform.position = position;
 				newStepPreview.transform.LookAt(position + velocity);
 				stepPreviews.Add(newStepPreview);

@@ -5,7 +5,8 @@ using UnityEngine;
 public class AimerScript : MonoBehaviour
 {
     private BallisticPreview preview;
-    public ThrowObject aimObject;
+    public GameObject aimObject;
+    public PlayerMovement.InputMethod inputMethod;
     public Vector3 throwDirection = new Vector3(0, 10, 0); 
     public Vector3 throwDifference = new Vector3(0, 0, 5);
     public Vector3 throwDirectionShort = new Vector3(0, 7, 3); 
@@ -45,7 +46,8 @@ public class AimerScript : MonoBehaviour
             throwDirection = throwDirectionLong;
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if ((inputMethod == PlayerMovement.InputMethod.KeyboardMouse && Input.GetButtonDown("FireKey"))
+            || (inputMethod == PlayerMovement.InputMethod.Controller && Input.GetButtonDown("FireJoy")))
         {
             var spawnedObject = Instantiate(SpawnedObjectPrefab, transform.root.parent);
             spawnedObject.transform.position = transform.position;
