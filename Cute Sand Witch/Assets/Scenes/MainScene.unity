@@ -1322,14 +1322,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: fallSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: jumpSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: startPosition.y
       value: 5
       objectReference: {fileID: 0}

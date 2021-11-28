@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimObject: {fileID: 7866125468917737866, guid: 0c612571fad807947b3d7095caca4654, type: 3}
+  inputMethod: 0
   throwDirection: {x: 0, y: 10, z: 0}
   throwDifference: {x: 0, y: 0, z: 5}
   throwDirectionShort: {x: 0, y: 4, z: 5}
@@ -357,8 +358,8 @@ MonoBehaviour:
   cameraOrigin: {fileID: 3715187788327850996}
   inputMethod: 0
   speed: 6
-  fallSpeed: 0.1
-  jumpSpeed: 30
+  fallSpeed: 2
+  jumpSpeed: 11
   rotationSpeedHorizontal: 240
   rotationSpeedVertical: 120
   maxVerticalRotation: 45

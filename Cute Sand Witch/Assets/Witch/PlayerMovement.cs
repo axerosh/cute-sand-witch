@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float minVerticalRotation = -30f;
 
     private Vector3 startPosition;
-    private Vector3 moveDir = new Vector3(0, 0, 0);
+    private Vector3 fallVelocity = new Vector3(0, 0, 0);
 
     void Start()
     {
@@ -52,36 +52,34 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        Vector3 direction = horizontal * transform.right + vertical * transform.forward;
+        Vector3 inputDirection = horizontal * transform.right + vertical * transform.forward;
 
         //begin with checking gravity
         if (!controller.isGrounded)
         {
-            moveDir += Physics.gravity * fallSpeed * Time.deltaTime;
+            fallVelocity += fallSpeed *Time.deltaTime * Physics.gravity;
+            Debug.Log($"Fall");
         }
         else //reset falling
         {
-            moveDir = Vector3.zero;
-        }
+            fallVelocity.y = -0.5f; // Since isGrounded is stupid
+            Debug.Log($"Grounded");
 
-        //check for movement
-        if (controller.isGrounded && direction.magnitude >= 0.1f)
-        {
-            //Debug.LogError($"{direction * speed * Time.deltaTime}");
-            moveDir = direction;
-            moveDir = moveDir.normalized * speed * Time.deltaTime;
-        }
-       
-        if ((inputMethod == InputMethod.KeyboardMouse && Input.GetButton("JumpKey"))
-            || (inputMethod == InputMethod.Controller && Input.GetButton("JumpJoy")))
-        {
-            if (controller.isGrounded)
+            if ((inputMethod == InputMethod.KeyboardMouse && Input.GetButtonDown("JumpKey"))
+                || (inputMethod == InputMethod.Controller && Input.GetButtonDown("JumpJoy")))
             {
-                moveDir += Vector3.up * jumpSpeed * Time.deltaTime;
+                Debug.Log($"Jump");
+                fallVelocity += Vector3.up * jumpSpeed;
             }
         }
 
-        controller.Move(moveDir);
+        //check for movement
+        if (inputDirection.magnitude >= 0.1f)
+        {
+            inputDirection = inputDirection.normalized * speed;
+        }
+
+        controller.Move((fallVelocity + inputDirection) * Time.deltaTime);
 
         //press r to reset position
         if (Input.GetKey(KeyCode.R))
@@ -99,12 +97,10 @@ public class PlayerMovement : MonoBehaviour
             case InputMethod.KeyboardMouse:
                 rotationHorizontal = Input.GetAxisRaw("Mouse X");
                 rotationVertical = -Input.GetAxisRaw("Mouse Y");
-                Debug.Log($"Mouse: rotationHorizontal={rotationHorizontal}, rotationVertical={rotationVertical}");
                 break;
             case InputMethod.Controller:
                 rotationHorizontal = Input.GetAxisRaw("LookHorizontalJoy");
                 rotationVertical = Input.GetAxisRaw("LookVerticalJoy");
-                Debug.Log($"Joy: rotationHorizontal={rotationHorizontal}, rotationVertical={rotationVertical}");
                 break;
         }
 
