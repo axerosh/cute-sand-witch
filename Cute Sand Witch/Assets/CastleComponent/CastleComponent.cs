@@ -23,6 +23,8 @@ public class CastleComponent : MonoBehaviour
     {
         health -= amount;
 
+        OnDamageTaken();
+
         if (health <= 0)
         {
             OnComponentDestroyed();
@@ -32,6 +34,11 @@ public class CastleComponent : MonoBehaviour
     }
 
     protected virtual void OnComponentDestroyed()
+    {
+
+    }
+
+    protected virtual void OnDamageTaken()
     {
 
     }

@@ -38,8 +38,12 @@ public class CrabArmy : MonoBehaviour
     void Start()
     {
         SpawnCrabs();
-        target = FindObjectsOfType<CastleCore>().Where((CastleCore c) => c.owner != owner).First();
-        transform.LookAt(target.transform, Vector3.up);
+        target = FindObjectsOfType<CastleCore>().Where((CastleCore c) => c.owner != owner).FirstOrDefault();
+        
+        if (target != null)
+        {
+            transform.LookAt(target.transform, Vector3.up);
+        }
 
         currentHealth = startingHealth;
     }
@@ -103,7 +107,6 @@ public class CrabArmy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
         if (collision.rigidbody != null)
         {
             CastleComponent hitComponent = collision.rigidbody.gameObject.GetComponent<CastleComponent>();
