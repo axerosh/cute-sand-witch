@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoneComponent
       objectReference: {fileID: 0}
+    - target: {fileID: 7075116021990960465, guid: 1192441098f48fc46abf5038ec1ec6e3, type: 3}
+      propertyPath: startingHealth
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1192441098f48fc46abf5038ec1ec6e3, type: 3}
 --- !u!4 &8036003257584715453 stripped
