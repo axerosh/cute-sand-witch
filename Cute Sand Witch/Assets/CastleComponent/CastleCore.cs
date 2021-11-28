@@ -11,10 +11,20 @@ public class CastleCore : CastleComponent
 
     public float shockwaveRadius;
 
+    public List<GameObject> teamModels;
+
     protected override void Start()
     {
         base.Start();
         shockwaveController.Stop();
+
+        //Make only the correct team color visible
+        foreach (GameObject model in teamModels)
+        {
+            model.SetActive(false);
+        }
+
+        teamModels[owner].SetActive(true);
     }
 
     protected override void OnComponentDestroyed()
