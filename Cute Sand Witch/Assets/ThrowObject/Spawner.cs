@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
 		if(TryGetComponent(out BallisticPreview preview))
 		{
 			preview.InitialRelativeVelocity = InitialVelocity;
-			preview.StepPreviewPrefab = SpawnedObjectPrefab;
+			preview.StepPreviewPrefab = SpawnedObjectPrefab.gameObject;
 		}
 	}
 

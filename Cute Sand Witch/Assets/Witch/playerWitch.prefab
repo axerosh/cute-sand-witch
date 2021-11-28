@@ -87,7 +87,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bef6e8f8bac4814b92cef43a9a399a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimObject: {fileID: 9004628184331511256, guid: 0c612571fad807947b3d7095caca4654, type: 3}
+  aimObject: {fileID: 7866125468917737866, guid: 0c612571fad807947b3d7095caca4654, type: 3}
   throwDirection: {x: 0, y: 10, z: 0}
   throwDifference: {x: 0, y: 0, z: 5}
   throwDirectionShort: {x: 0, y: 4, z: 5}
@@ -355,12 +355,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 7909874830468606907}
   cameraOrigin: {fileID: 3715187788327850996}
+  inputMethod: 0
   speed: 6
-  fallSpeed: 1
-  jumpSpeed: 1
+  fallSpeed: 0.1
+  jumpSpeed: 30
   rotationSpeedHorizontal: 240
   rotationSpeedVertical: 120
-  maxVerticalRotation: 25
+  maxVerticalRotation: 45
   minVerticalRotation: -30
 --- !u!143 &7909874830468606907
 CharacterController:
