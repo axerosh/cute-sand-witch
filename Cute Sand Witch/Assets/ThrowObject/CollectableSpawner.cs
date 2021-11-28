@@ -47,19 +47,20 @@ public class CollectableSpawner : MonoBehaviour
 					accumulatedWeight += objectWithWeight.Weight;
 					if (accumulatedWeight >= pick)
 					{
-						var spawnedObject = Instantiate(objectWithWeight.ObjectPrefab, transform.root);
-						spawnedObject.Init();
-						spawnedObject.IsPreview = true;
-
 						Vector2 circlePosition = Random.insideUnitCircle * SpawnRadius;
 						Vector3 spawnPosition = transform.position + new Vector3(circlePosition.x, 0f, circlePosition.y);
 
 						if (Physics.Raycast(spawnPosition + Vector3.up, Vector3.down, out var hit, 10f, layerMask)
 							&& hit.transform.name.Contains("Terrain"))
 						{
+							var spawnedObject = Instantiate(objectWithWeight.ObjectPrefab, transform.root);
+							spawnedObject.Init();
+
 							spawnPosition.y = hit.point.y + 0.1f;
 							spawnedObject.transform.position = spawnPosition;
 							spawnedObject.transform.Rotate(0f, Random.Range(-180, 180), 0f);
+							spawnedObject.IsPickup = true;
+							spawnedObject.IsPreview = false;
 						}
 						break;
 					}

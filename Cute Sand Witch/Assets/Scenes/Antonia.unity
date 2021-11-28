@@ -334,36 +334,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &432554754 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7909874830468606854, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-  m_PrefabInstance: {fileID: 7909874830440807129}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &432554757
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432554754}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.48
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.48, z: 0}
---- !u!114 &757688584 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7909874830230086430, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-  m_PrefabInstance: {fileID: 7909874830440807129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bef6e8f8bac4814b92cef43a9a399a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &767094656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,30 +1698,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7909874829535975786, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -1.9689816e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874829535975786, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -4.3072948e-11
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830230086430, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: witchTransform
-      value: 
-      objectReference: {fileID: 30953825}
-    - target: {fileID: 7909874830230086430, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: SpawnedObjectPrefab
-      value: 
-      objectReference: {fileID: 2542578578516124157, guid: 69995169c1692a84c9da95cee883332d, type: 3}
-    - target: {fileID: 7909874830230086431, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830230086431, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606854, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_Name
       value: playerWitch
@@ -1799,30 +1745,6 @@ PrefabInstance:
     - target: {fileID: 7909874830468606904, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: aimer
-      value: 
-      objectReference: {fileID: 757688584}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: fallSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: jumpSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: startPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: startPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7909874830468606907, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
-      propertyPath: m_Radius
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}

@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrowStone
       objectReference: {fileID: 0}
+    - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 5593539927372902228}
     - target: {fileID: 5066401249628783675, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -154,3 +158,8 @@ CapsuleCollider:
   m_Height: 0.55
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5593539927372902228 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+  m_PrefabInstance: {fileID: 7279634117094843847}
+  m_PrefabAsset: {fileID: 0}

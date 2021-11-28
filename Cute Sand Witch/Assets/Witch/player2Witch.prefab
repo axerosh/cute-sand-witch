@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3240680493870528101, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7909874829535975784, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7909874830230086430, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: inputMethod
       value: 1
@@ -25,15 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606904, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.07358551
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606904, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606904, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -16.271828
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606904, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64,8 +72,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
+      propertyPath: jumpSpeed
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7909874830468606905, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
       propertyPath: inputMethod
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7909874829535975784, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
+    - {fileID: 3240680493870528101, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1732fdc3b831ee448b4a2dc5ce38104d, type: 3}

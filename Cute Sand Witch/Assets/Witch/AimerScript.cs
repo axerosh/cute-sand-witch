@@ -37,10 +37,21 @@ public class AimerScript : MonoBehaviour
         SetPreviewCube();
     }
 
+    public void SetNoAmmo()
+    {
+        SpawnedObjectPrefab = null;
+        Destroy(previewCube);
+    }
+
     private void SetPreviewCube()
     {
         //SpawnedObjectPrefab.
         previewCube = Instantiate(SpawnedObjectPrefab.SpawnedObjectPrefab, transform);
+        var wc = previewCube.GetComponent<CastleComponent>();
+        if(wc != null)
+        {
+            wc.enabled = false;
+        }
 
         previewCube.layer = 0;
         // previewCube.GetComponent<Rigidbody>().isKinematic = false;
@@ -50,7 +61,8 @@ public class AimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        previewCube.transform.rotation = witchTransform.rotation;
+        if(previewCube != null)
+            previewCube.transform.rotation = witchTransform.rotation;
         
         //preview.InitialRelativeVelocity = throwDirection;
         if (Input.GetKey(KeyCode.Alpha1))
@@ -71,13 +83,17 @@ public class AimerScript : MonoBehaviour
             throwDirection = throwDirectionLong;
 
         }
-        if ((inputMethod == PlayerMovement.InputMethod.KeyboardMouse && Input.GetButtonDown("FireKey"))
-            || (inputMethod == PlayerMovement.InputMethod.Controller && Input.GetButtonDown("FireJoy")))
+        if (SpawnedObjectPrefab != null && ((inputMethod == PlayerMovement.InputMethod.KeyboardMouse && Input.GetButtonDown("FireKey"))
+            || (inputMethod == PlayerMovement.InputMethod.Controller && Input.GetButtonDown("FireJoy"))))
         {
             var spawnedObject = Instantiate(SpawnedObjectPrefab, transform.root.parent);
+            var cc = spawnedObject.GetComponent<CastleComponent>();
+            if (cc != null)
+                spawnedObject.GetComponent<CastleComponent>().enabled = true;
             spawnedObject.transform.position = transform.position;
             var rb = spawnedObject.GetComponent<Rigidbody>();
             rb.velocity = transform.rotation * throwDirection;
+            SetNoAmmo();
         }
         preview.InitialRelativeVelocity = throwDirection;
 

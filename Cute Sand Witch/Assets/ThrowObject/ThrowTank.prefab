@@ -89,6 +89,10 @@ PrefabInstance:
       value: ThrowTank
       objectReference: {fileID: 0}
     - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 5593539927372902228}
+    - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: SpawnedObjectPrefab
       value: 
       objectReference: {fileID: 7011771617757676301, guid: c1dbc674f28be6b458c0362ff82138ac, type: 3}
@@ -178,3 +182,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12, y: 0.125, z: 0.4}
   m_Center: {x: 0, y: 0.157, z: 0.0125}
+--- !u!54 &5593539927372902228 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+  m_PrefabInstance: {fileID: 7279634117094843847}
+  m_PrefabAsset: {fileID: 0}

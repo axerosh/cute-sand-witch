@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("player script started");
         startPosition = transform.position;
         SetMouseLocked(true);
+
     }
 
     // Update is called once per frame
@@ -60,12 +61,12 @@ public class PlayerMovement : MonoBehaviour
         if (!controller.isGrounded)
         {
             fallVelocity += fallSpeed *Time.deltaTime * Physics.gravity;
-            Debug.Log($"Fall");
+            //Debug.Log($"Fall");
         }
         else //reset falling
         {
             fallVelocity.y = -0.5f; // Since isGrounded is stupid
-            Debug.Log($"Grounded");
+            //Debug.Log($"Grounded");
 
             if ((inputMethod == InputMethod.KeyboardMouse && Input.GetButtonDown("JumpKey"))
                 || (inputMethod == InputMethod.Controller && Input.GetButtonDown("JumpJoy")))

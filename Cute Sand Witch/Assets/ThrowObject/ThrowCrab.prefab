@@ -81,9 +81,13 @@ PrefabInstance:
       value: ThrowCrab
       objectReference: {fileID: 0}
     - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 5593539927372902228}
+    - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: SpawnedObjectPrefab
       value: 
-      objectReference: {fileID: 8583930970107040775, guid: 33c7e82119a451848a1aa0b780519390, type: 3}
+      objectReference: {fileID: 5186682326104464236, guid: 2d73dec88ad369d42b41dbb01a441501, type: 3}
     - target: {fileID: 5066401249628783675, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -157,3 +161,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.25, z: 0.38}
   m_Center: {x: 0, y: -0.03, z: 0}
+--- !u!54 &5593539927372902228 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+  m_PrefabInstance: {fileID: 7279634117094843847}
+  m_PrefabAsset: {fileID: 0}
