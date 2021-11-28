@@ -84,10 +84,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5066401249628783672, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: m_Name
       value: ThrowSand
       objectReference: {fileID: 0}
+    - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 5593539927372902228}
     - target: {fileID: 5066401249628783674, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: SpawnedObjectPrefab
       value: 
@@ -165,3 +185,8 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.18, z: 0.38}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5593539927372902228 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+  m_PrefabInstance: {fileID: 7279634117094843847}
+  m_PrefabAsset: {fileID: 0}

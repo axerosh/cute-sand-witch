@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     public Transform cameraOrigin;
+    public AimerScript aimer;
 
     public float speed = 6f;
     public float fallSpeed = 1f;
@@ -46,9 +47,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //check for movement
-        if (controller.isGrounded && direction.magnitude >= 0.1f)
+        if (controller.isGrounded && direction.magnitude >= 0.1f)     // This prevents flying
+        //if (direction.magnitude >= 0.1f)                          // this enables flying
         {
-            //Debug.LogError($"{direction * speed * Time.deltaTime}");
             moveDir = direction;
             moveDir = moveDir.normalized * speed * Time.deltaTime;
         }
@@ -114,4 +115,49 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = isLocked ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !isLocked;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("player on  collision started" + collision.gameObject.name);
+        //ThrowObject throwObject = collision.gameObject.GetComponent<ThrowObject>();
+        switch(collision.gameObject.name)
+        {
+            case "ThrowSand(Clone)":
+                aimer.SetNewAmmo(aimer.throwables[0]);
+                Destroy(collision.gameObject);
+                break;
+            case "ThrowStone(Clone)":
+                aimer.SetNewAmmo(aimer.throwables[1]);
+                Destroy(collision.gameObject);
+                break;
+            case "ThrowCrab(Clone)":
+                aimer.SetNewAmmo(aimer.throwables[2]);
+                Destroy(collision.gameObject);
+                break;
+            case "ThrowTank(Clone)":
+                aimer.SetNewAmmo(aimer.throwables[3]);
+                Destroy(collision.gameObject);
+                break;
+            default:
+                Debug.Log("Collided with not trowable!");
+                return;
+        }
+    }
+
+    /*
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Debug.Log("controller collider hit"+hit.gameObject.name);
+        ThrowObject throwObject = hit.gameObject.GetComponent<ThrowObject>();
+        if (throwObject != null)
+        {
+            Debug.Log("collision is throw object");
+            if (throwObject.IsPickup)
+            {
+                Debug.Log("collision is pickup");
+                Destroy(hit.gameObject);
+            }
+        }
+    }
+    */
 }

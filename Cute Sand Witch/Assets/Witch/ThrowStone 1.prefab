@@ -76,6 +76,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2929110266056936083, guid: bc21a4a412d66994db9ac14563420005, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 5066401249628783672, guid: bc21a4a412d66994db9ac14563420005, type: 3}
       propertyPath: m_Name
       value: ThrowStone 1

@@ -26,17 +26,42 @@ public class ThrowObject : MonoBehaviour
 		}
 	}
 
+	public bool IsPickup
+	{
+		set
+		{
+			isPickup = value;
+			if(value)
+            {
+				gameObject.layer = 0;
+			}
+			else
+			{
+				gameObject.layer = LayerMask.NameToLayer("ThrowObject");
+			}
+		}
+		get
+        {
+			return isPickup;
+        }
+	}
+
+	[SerializeField]
 	private Rigidbody rb;
 	private bool isPreview = false;
+	private bool isPickup = false;
 
 	public void Init()
 	{
 		rb = GetComponent<Rigidbody>();
+		//IsPickup = true;
 	}
 
 	private void Start()
 	{
 		Init();
+
+		//gameObject.layer = 0;
 	}
 
 	private void FixedUpdate()
@@ -52,7 +77,7 @@ public class ThrowObject : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (isPreview)
+		if (isPreview || isPickup)
 			return;
 
 		// Dummy default values

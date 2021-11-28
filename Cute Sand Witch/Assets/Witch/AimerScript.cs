@@ -6,12 +6,16 @@ public class AimerScript : MonoBehaviour
 {
     private BallisticPreview preview;
     public ThrowObject aimObject;
-    public Vector3 throwDirection = new Vector3(0, 10, 0); 
+    public Vector3 throwDirection = new Vector3(0, 10, 0);
+    private GameObject previewCube;
     public Vector3 throwDifference = new Vector3(0, 0, 5);
     public Vector3 throwDirectionShort = new Vector3(0, 7, 3); 
     public Vector3 throwDirectionMedium = new Vector3(0, 10, 5);
     public Vector3 throwDirectionLong = new Vector3(0, 15, 8);
     public ThrowObject SpawnedObjectPrefab;
+    private Vector3 previewScale = new Vector3(0.5f, 0.5f, 0.5f) * 0.5f;
+    public Transform witchTransform;
+    public List<ThrowObject> throwables;
 
     void Start()
     {
@@ -21,12 +25,33 @@ public class AimerScript : MonoBehaviour
         preview.StepPreviewPrefab = aimObject;
         preview.InitialRelativeVelocity = throwDirectionMedium;
         throwDirection = throwDirectionMedium;
+
+        SetPreviewCube();
+    }
+
+    public void SetNewAmmo(ThrowObject newAmmo)
+    {
+        SpawnedObjectPrefab = newAmmo;
+        Destroy(previewCube);
+        SetPreviewCube();
+    }
+
+    private void SetPreviewCube()
+    {
+        //SpawnedObjectPrefab.
+        previewCube = Instantiate(SpawnedObjectPrefab.SpawnedObjectPrefab, transform);
+
+        previewCube.layer = 0;
+        // previewCube.GetComponent<Rigidbody>().isKinematic = false;
+        previewCube.transform.localScale = previewScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-      //preview.InitialRelativeVelocity = throwDirection;
+        previewCube.transform.rotation = witchTransform.rotation;
+        
+        //preview.InitialRelativeVelocity = throwDirection;
         if (Input.GetKey(KeyCode.Alpha1))
         {
             // Debug.Log("Q is pressed");
