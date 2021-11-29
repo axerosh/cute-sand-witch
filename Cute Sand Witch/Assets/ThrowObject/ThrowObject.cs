@@ -5,6 +5,7 @@ public class ThrowObject : MonoBehaviour
 	public GameObject SpawnedObjectPrefab;
 
 	public int owner = 0;
+	public System.Action OnDestroyed;
 
 	public bool IsPreview
 	{
@@ -52,6 +53,14 @@ public class ThrowObject : MonoBehaviour
 	private Rigidbody rb;
 	private bool isPreview = false;
 	private bool isPickup = false;
+
+	private void OnDestroy()
+	{
+		if (OnDestroyed != null)
+		{
+			OnDestroyed.Invoke();
+		}
+	}
 
 	public void Init()
 	{

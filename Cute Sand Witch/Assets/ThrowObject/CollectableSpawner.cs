@@ -19,7 +19,7 @@ public class CollectableSpawner : MonoBehaviour
 	public float TimeBetweenSpawns = 1f;
 	public float SpawnRadius = 5f;
 
-	private List<CollectableType> spawnedCollectables = new List<CollectableType>();
+	private readonly List<CollectableType> spawnedCollectables = new List<CollectableType>();
 	private float totalWeight = 0f;
 	private int layerMask;
 
@@ -55,6 +55,9 @@ public class CollectableSpawner : MonoBehaviour
 						{
 							var spawnedObject = Instantiate(objectWithWeight.ObjectPrefab, transform.root);
 							spawnedObject.Init();
+
+							spawnedCollectables.Add(spawnedObject);
+							spawnedObject.OnDestroyed += () => { spawnedCollectables.Remove(spawnedObject); };
 
 							spawnPosition.y = hit.point.y + 0.1f;
 							spawnedObject.transform.position = spawnPosition;
