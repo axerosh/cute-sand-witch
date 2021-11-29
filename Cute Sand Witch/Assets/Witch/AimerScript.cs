@@ -44,6 +44,11 @@ public class AimerScript : MonoBehaviour
         Destroy(previewCube);
     }
 
+    public bool HasAmmo()
+    {
+        return SpawnedObjectPrefab != null;
+    }
+
     private void SetPreviewCube()
     {
         //SpawnedObjectPrefab.

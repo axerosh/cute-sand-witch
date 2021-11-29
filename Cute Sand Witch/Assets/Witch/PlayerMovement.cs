@@ -150,7 +150,9 @@ public class PlayerMovement : MonoBehaviour
 	private void OnTriggerEnter(Collider collider)
     {
         Debug.Log("player on collision started" + collider.gameObject.name);
-        //ThrowObject throwObject = collision.gameObject.GetComponent<ThrowObject>();
+        if (aimer.HasAmmo())
+            return;
+
         switch(collider.gameObject.name)
         {
             case "ThrowSand(Clone)":
