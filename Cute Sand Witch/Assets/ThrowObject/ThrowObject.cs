@@ -35,7 +35,10 @@ public class ThrowObject : MonoBehaviour
 		{
 			isPickup = value;
 			rb.useGravity = !isPickup;
-			GetComponent<Collider>().isTrigger = isPickup;
+			foreach (var collider in GetComponents<Collider>())
+			{
+				collider.isTrigger = isPickup;
+			}
 
 			if (isPickup)
 			{
