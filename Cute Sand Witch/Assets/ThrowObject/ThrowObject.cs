@@ -34,19 +34,24 @@ public class ThrowObject : MonoBehaviour
 		set
 		{
 			isPickup = value;
-			if(value)
-            {
+			rb.useGravity = !isPickup;
+			GetComponent<Collider>().isTrigger = isPickup;
+
+			if (isPickup)
+			{
 				gameObject.layer = 0;
+				rb.constraints = RigidbodyConstraints.FreezeRotation;
 			}
 			else
 			{
 				gameObject.layer = LayerMask.NameToLayer("ThrowObject");
+				rb.constraints = RigidbodyConstraints.None;
 			}
 		}
 		get
-        {
+		{
 			return isPickup;
-        }
+		}
 	}
 
 	[SerializeField]

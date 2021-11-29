@@ -147,27 +147,27 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = !isLocked;
     }
 
-    private void OnCollisionEnter(Collision collision)
+	private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("player on  collision started" + collision.gameObject.name);
+        Debug.Log("player on collision started" + collider.gameObject.name);
         //ThrowObject throwObject = collision.gameObject.GetComponent<ThrowObject>();
-        switch(collision.gameObject.name)
+        switch(collider.gameObject.name)
         {
             case "ThrowSand(Clone)":
                 aimer.SetNewAmmo(aimer.throwables[0]);
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
                 break;
             case "ThrowStone(Clone)":
                 aimer.SetNewAmmo(aimer.throwables[1]);
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
                 break;
             case "ThrowCrab(Clone)":
                 aimer.SetNewAmmo(aimer.throwables[2]);
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
                 break;
             case "ThrowTank(Clone)":
                 aimer.SetNewAmmo(aimer.throwables[3]);
-                Destroy(collision.gameObject);
+                Destroy(collider.gameObject);
                 break;
             default:
                 Debug.Log("Collided with not trowable!");
