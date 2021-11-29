@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5186682326104464237}
   - component: {fileID: 5186682326104464234}
+  - component: {fileID: 26484185810963668}
   m_Layer: 6
   m_Name: Crab Barracks
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   crabPrefab: {fileID: 1583466522134353811, guid: ecd466ff2d77e45499fd95a4d6028ffe, type: 3}
   crabSpawnPoint: {fileID: 8374748517631709520}
   cooldown: 8
+--- !u!65 &26484185810963668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186682326104464236}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.82, z: 1}
+  m_Center: {x: 0, y: -0.09, z: 0.5}
 --- !u!1 &8000781290147171258
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,16 +108,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -144,22 +170,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
   m_PrefabInstance: {fileID: 3974483444642499298}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4317081169919965107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
-  m_PrefabInstance: {fileID: 3974483444642499298}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &2678370206764119174
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4317081169919965107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 44c02b747d5ad944c98b32200ddac3fd, type: 3}
